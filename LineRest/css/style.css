@@ -1,0 +1,921 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+@font-face {
+    font-family: CeraPro;
+    src: url('../fonts/CeraPro-Regular.eot');
+    src: local('☺'), url('../fonts/CeraPro-Regular.woff') format('woff'), url('../fonts/CeraPro-Regular.ttf') format('truetype'), url('../fonts/CeraPro-Regular.svg') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: CeraPro;
+    src: url('../fonts/CeraPro-Medium.eot');
+    src: local('☺'), url('../fonts/CeraPro-Medium.woff') format('woff'), url('../fonts/CeraPro-Medium.ttf') format('truetype'), url('../fonts/CeraPro-Medium.svg') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: CeraPro;
+    src: url('../fonts/CeraPro-Bold.eot');
+    src: local('☺'), url('../fonts/CeraPro-Bold.woff') format('woff'), url('../fonts/CeraPro-Bold.ttf') format('truetype'), url('../fonts/CeraPro-Bold.svg') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+body {
+    font-family: CeraPro;
+    font-weight: 500;
+    /* max-width: 1920px; */
+    min-width: 1200px;
+    width: 100%;
+    color: rgba(30, 34, 45, 1);
+    cursor: default;
+}
+
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Модальное окно ________________________________________________ */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: white;
+    padding: 26px;
+    border-radius: 6px;
+}
+
+.modal_title {
+    font-weight: 500px;
+    color: #1E222D;
+    font-size: 30px;
+}
+
+.modal_content {
+    margin: 20px 0 45px 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-indent: 18px;
+    color: rgba(30, 34, 45, 0.6);
+    background: url(../img/Icon.svg) left 3px no-repeat;
+
+}
+
+.modal_true {
+    line-height: 50px;
+    width: 100%;
+    background: #FEE600;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+}
+
+.modal_true:hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal_false {
+    width: 100%;
+    height: 50px;
+    color: rgba(247, 153, 153, 1);
+    border: 1px solid #F79999;
+    border-radius: 6px;
+    background: white;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.modal_false:hover {
+    background-color: rgba(247, 153, 153, 1);
+    color: black;
+}
+
+/* ______________________________________________________________ */
+
+.nav {
+    background-color: #fff;
+    width: 420px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -460px;
+    /* right: 0; */
+    /* margin-right: -460px; */
+    z-index: 9;
+    /* transition-property: transform;
+    transition-duration: .5s; */
+    /* transition-delay: 2s; */
+    transition: transform .4s ease-out;
+    /* animation: test .5s 2s ease-out  forwards; */
+}
+.showNav{
+transform: translateX(-460px);
+    /* animation: showNav .4s ease-out  forwards; */
+}
+@keyframes showNav {
+    100%{
+        right: 0px;
+    }
+}
+
+.hideNav{
+    transform: translateX(0px);
+    /* animation: hideNav .4s ease-in  forwards; */
+}
+@keyframes hideNav {
+    100%{
+        right: -460px;
+    }
+}
+
+.nav_content {
+    border-left: 2px solid #FFFBD6;
+    height: calc(100% - 50px);
+    
+}
+
+
+
+.nav_close {
+    position: absolute;
+    top: 36px;
+    left: 36px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    position: relative;
+}
+
+.nav_close:hover {
+    opacity: 1;
+}
+
+.nav_close::before,
+.nav_close::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #000;
+    border-radius: 50px;
+}
+
+.nav_close::before {
+    transform: rotate(45deg);
+}
+
+.nav_close::after {
+    transform: rotate(-45deg);
+}
+
+.nav_title {
+    margin: 65px 0px 0px 32px;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.nav_container {
+    height: calc(100% - 145px);
+    margin: 28px 0px 0px 39px;
+    width: 342px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #FEE600 #fff;
+}
+.nav_container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav_container::-webkit-scrollbar-thumb {
+    background-color: #FEE600;
+    border-radius: 4px;
+}
+
+.user_online {
+    background-color: #FFF;
+    margin-bottom: 16px;
+    height: 44px;
+    padding-left: 14px;
+}
+
+.user_online>div:nth-child(1) {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1E222D;
+    position: relative;
+
+}
+
+.user_online>div:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: -14px;
+    height: 6px;
+    width: 6px;
+    line-height: 0px;
+    border-radius: 50%;
+    background-color: #93EC91;
+}
+
+.user_online>div:nth-child(2) {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #AAABAD;
+}
+
+.user_online>div:nth-child(2)::before {
+    content: "Доб.:";
+}
+
+.nav_btn {
+    user-select: none;
+    text-decoration: none;
+    height: 50px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+    text-indent: 74px;
+    background: #FFFBD6;
+    position: relative;
+    transition: all .3s;
+}
+
+.nav_btn::before {
+    content: "";
+    background: url(../img/exit.svg) no-repeat;
+    display: block;
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 16px;
+    left: 45px;
+}
+.nav_btn:hover{
+    background-color: #FEE600;
+}
+.personage_id {
+    margin-top: 41px;
+    margin-left: 4.8%;
+    height: 28px;
+    position: relative;
+}
+
+.face_shape {
+    width: 22px;
+    height: 22px;
+    background: url(../img/shape.svg) 0px/cover no-repeat;
+    color: black;
+    margin-right: 18px;
+    float: left;
+
+}
+
+.personage {
+    font-family: CeraPro;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.get_out {
+    height: 10px;
+    width: 18px;
+    border-block: 2px solid #2B2D33;
+    padding: 2px 0px;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+
+}
+
+.get_out>div {
+    height: 2px;
+    width: 100%;
+    background-color: #2B2D33;
+}
+
+.schedule {
+    margin: 39px 0px 32px 4.8%;
+    /* border: 1px solid;    */
+    width: 217px;
+    /* height: 38px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.switch {
+    vertical-align: top;
+    font-size: 16px;
+    color: #808185;
+    font-weight: 500;
+    background-color: #fff;
+    line-height: 26px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.switch:hover {
+    color: #2B2D33;
+}
+
+.activeSchedule {
+    color: #2B2D33;
+    cursor: default;
+}
+
+.activeSchedule::after {
+    content: "";
+    height: 4px;
+    background-color: #FEE600;
+    display: block;
+    border-radius: 4px;
+    margin-top: 8px;
+    animation: showAfter .3s forwards;
+}
+
+@keyframes showAfter {
+    0% {
+        transform: scaleX(0)
+    }
+
+    100% {
+        transform: scaleX(1)
+    }
+}
+
+.all_cards {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.all_cards>div {
+    padding-left: 1.7%;
+    width: 32%;
+    max-width: 418px;
+    height: 241px;
+    padding-bottom: 16px;
+    float: left;
+}
+
+/* Карта 1 ___________________________________________________________________________*/
+.card1 {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+}
+
+.card1>:nth-child(1) {
+    width: 179px;
+    height: 28px;
+    background: rgba(147, 236, 145, 1);
+    border-radius: 0px 0px 6px 6px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 28px;
+
+}
+
+.card1>:nth-child(2) {
+    display: none;
+
+}
+
+.card1>:nth-child(3) {
+    margin-top: 16px;
+    line-height: 40px;
+    font-size: 32px;
+
+}
+
+.card1>:nth-child(4) {
+    margin-top: 42px;
+    width: 93%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-indent: 18px;
+    color: rgba(30, 34, 45, 0.6);
+    background: url(../img/Icon.svg) left 2px no-repeat
+}
+
+.card1>:nth-child(5) {
+    display: none;
+}
+
+.card1>:nth-child(6) {
+    line-height: 50px;
+    width: 92.8%;
+    margin-top: 12px;
+    background: rgba(147, 236, 145, 1);
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s;
+
+}
+
+.card1>:nth-child(6):hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.beginClick {
+    line-height: 50px;
+    width: 92.8%;
+    margin-top: 12px;
+    background: rgba(147, 236, 145, 1);
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.removeClick {
+    background: #e4e4e4 !important;
+    color: #6b6b6b;
+    box-shadow: none !important;
+}
+
+.card1>:nth-child(7) {
+    display: none;
+}
+
+.card1>:nth-child(8) {
+    display: none;
+}
+
+.card1>:nth-child(9) {
+    display: none;
+}
+
+.card1>:nth-child(10) {
+    display: none;
+}
+
+/* _________________________________________ */
+
+/* Карта 2 ___________________________________________________________________________*/
+
+.card2 {
+    background: #FFFBD6;
+    border-radius: 6px;
+}
+
+.card2>:nth-child(1) {
+    width: 186px;
+    height: 28px;
+    background: rgba(254, 230, 0, 1);
+    border-radius: 0px 0px 6px 6px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.card2>:nth-child(2) {
+    display: none;
+}
+
+.card2>:nth-child(3) {
+    margin-top: 16px;
+    line-height: 40px;
+    font-size: 32px;
+
+}
+
+.card2>:nth-child(4) {
+    display: none;
+}
+
+.card2>:nth-child(5) {
+    margin-top: 14px;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42.74px;
+}
+
+.card2>:nth-child(6) {
+    display: none;
+}
+
+.card2>:nth-child(7):hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card2>:nth-child(7) {
+    display: none;
+    line-height: 50px;
+    width: 92.8%;
+    margin-top: 34px;
+    background: rgba(254, 230, 0, 1);
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s;
+
+
+}
+
+.showBlock {
+    visibility: hidden;
+    opacity: 0;
+    animation: showBlock 1s 1s linear forwards;
+}
+
+.card2>:nth-child(8) {
+    display: none;
+}
+
+.card2>:nth-child(9) {
+    display: none;
+}
+
+.card2>:nth-child(10) {
+    display: none;
+}
+
+/* @keyframes showBlock {
+      0% {
+          opacity: 0;
+      }
+
+      100% {
+          visibility: visible;
+          opacity: 1;
+      }
+  } */
+/* _________________________________________ */
+
+/* Карта 3 ___________________________________________________________________________*/
+
+.card3 {
+    background: #FFECEC;
+    border-radius: 6px;
+}
+
+.card3>:nth-child(1) {
+    width: 150px;
+    height: 28px;
+    background: rgba(247, 153, 153, 1);
+    border-radius: 0px 0px 6px 6px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 28px;
+
+}
+
+.card3>:nth-child(2) {
+    display: none;
+}
+
+.card3>:nth-child(3) {
+    margin-top: 16px;
+    line-height: 40px;
+    font-size: 32px;
+
+}
+
+.card3>:nth-child(4) {
+    display: none;
+}
+
+.card3>:nth-child(5) {
+    margin-top: 14px;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 42.74px;
+}
+
+.card3>:nth-child(6) {
+    display: none;
+}
+
+.card3>:nth-child(7) {
+    display: none;
+}
+
+.card3>:nth-child(8) {
+    margin-top: 34px;
+    font-size: 16px;
+}
+
+.card3>:nth-child(9) {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(30, 34, 45, 0.5);
+    margin-top: 11px;
+}
+
+.card3>:nth-child(10) {
+    display: none;
+}
+
+/* _________________________________________ */
+
+/* Карта 4 ___________________________________________________________________________*/
+
+.cardBlocked {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+}
+
+.cardBlocked>:nth-child(1) {
+    display: none;
+
+}
+
+.cardBlocked>:nth-child(2) {
+    width: 179px;
+    height: 28px;
+    background: #e4e4e4;
+    border-radius: 0px 0px 6px 6px;
+    color: #6b6b6b;
+    text-align: center;
+    font-weight: 400;
+    line-height: 28px;
+
+}
+
+.cardBlocked>:nth-child(3) {
+    margin-top: 16px;
+    line-height: 40px;
+    font-size: 32px;
+
+}
+
+.cardBlocked>:nth-child(4) {
+    margin-top: 42px;
+    width: 93%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-indent: 18px;
+    color: rgba(30, 34, 45, 0.6);
+    background: url(../img/Icon.svg) left 2px no-repeat
+}
+
+.cardBlocked>:nth-child(5) {
+    display: none;
+
+
+}
+
+.cardBlocked>:nth-child(6) {
+    display: none;
+
+
+}
+
+.cardBlocked>:nth-child(7) {
+    display: none;
+}
+
+.cardBlocked>:nth-child(8) {
+    display: none;
+}
+
+.cardBlocked>:nth-child(9) {
+    display: none;
+}
+
+.cardBlocked>:nth-child(10) {
+    line-height: 50px;
+    width: 92.8%;
+    margin-top: 12px;
+    background: #e4e4e4;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #6b6b6b;
+    cursor: not-allowed;
+}
+
+/* _________________________________________ */
+
+.all_stack {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 49px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.all_stack>div {
+    width: 32%;
+    max-width: 418px;
+    float: left;
+}
+
+.all_stack p {
+    font-size: 22px;
+    color: rgba(30, 34, 45, 1);
+    margin-bottom: 26px;
+
+}
+
+.send_post {
+    display: none;
+    border: 1px solid rgba(254, 230, 0, 1);
+    width: 100%;
+    border-radius: 6px;
+    padding: 14px 0px 13px;
+    background-color: white;
+    font-size: 18px;
+    color: #1E222D;
+    font-weight: 500;
+    margin-bottom: 34px;
+    transition: all 0.3s;
+}
+
+.send_post:hover {
+    background-color: rgba(254, 230, 0, 1);
+}
+
+/* пост 1 ____________________________________________________ */
+.post1 {
+    width: 100%;
+    height: 75px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.post1> :nth-child(1) {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: rgba(217, 217, 217, 1);
+    margin: 20px 0px 42px 16px;
+    box-shadow: 0px 0px 0px 5px rgba(217, 217, 217, 0.4);
+    float: left;
+}
+
+.post1> :nth-child(2) {
+    font-size: 16px;
+    margin: 0px 0px 8px 53px;
+    padding-top: 19px;
+}
+
+.post1> :nth-child(3) {
+    margin: 8px 0px 0px 53px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(30, 34, 45, 0.5);
+}
+
+/* пост 2 ____________________________________________________ */
+.post2 {
+    border: 1px solid #FEE600;
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.post2> :nth-child(1) {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: rgba(254, 230, 0, 1);
+    margin: 20px 0px 20px 16px;
+    box-shadow: 0px 0px 0px 5px rgba(255, 251, 214, 1);
+    float: left;
+}
+
+.post2> :nth-child(2) {
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0px 0px 8px 53px;
+    padding-top: 19px;
+}
+
+.post2> :nth-child(3) {
+    margin: 8px 0px 0px 53px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(30, 34, 45, 0.5);
+    margin-bottom: 24px;
+}
+
+#replacementBt {
+    height: 50px;
+    width: 92%;
+    margin: 0px 0px 0px 16px;
+    color: rgba(30, 34, 45, 1);
+    border: 1px solid rgba(254, 230, 0, 1);
+    border-radius: 6px;
+    background: rgba(254, 230, 0, 1);
+    margin-bottom: 6px;
+    font-size: 18px;
+    transition: all 0.3s;
+    /* display: none; */
+}
+
+#replacementBt:hover {
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.infoReplacement {
+    height: 50px;
+    width: 92%;
+    margin: 0px 0px 0px 16px;
+    margin-bottom: 6px;
+    padding-top: 8px;
+    /* margin-top: 42px; */
+    /* width: 93%; */
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-indent: 18px;
+    color: rgba(30, 34, 45, 0.6);
+    background: url(../img/Icon.svg) left 10px no-repeat
+}
+
+.post2> :nth-child(5) {
+    height: 50px;
+    width: 92%;
+    margin: 0px 0px 14px 16px;
+    color: rgba(247, 153, 153, 1);
+    border: 1px solid #F79999;
+    border-radius: 6px;
+    background: white;
+    font-size: 18px;
+    transition: all 0.3s;
+}
+
+.post2>:nth-child(5):hover {
+    background-color: rgba(247, 153, 153, 1);
+    color: black;
+}
+
+/* пост 3 ____________________________________________________ */
+.post3 {
+    width: 100%;
+    height: 75px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    outline: rgba(254, 230, 0, 1) solid 2px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.post3:hover {
+    outline-color: rgba(147, 236, 145, 1);
+
+}
+
+.post3> :nth-child(1) {
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background: rgba(217, 217, 217, 1);
+    margin: 20px 0px 42px 16px;
+    box-shadow: 0px 0px 0px 5px rgba(217, 217, 217, 0.4);
+    float: left;
+}
+
+.post3> :nth-child(2) {
+    font-size: 16px;
+    margin: 0px 0px 8px 53px;
+    padding-top: 19px;
+}
+
+.post3> :nth-child(3) {
+    margin: 8px 0px 0px 53px;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(30, 34, 45, 0.5);
+}

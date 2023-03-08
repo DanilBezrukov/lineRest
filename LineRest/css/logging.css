@@ -1,0 +1,124 @@
+@font-face {
+    font-family: CeraPro;
+    src: url('../fonts/CeraPro-Regular.eot');
+    src: local('☺'), url('../fonts/CeraPro-Regular.woff') format('woff'), url('../fonts/CeraPro-Regular.ttf') format('truetype'), url('../fonts/CeraPro-Regular.svg') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: CeraPro;
+    src: url('../fonts/CeraPro-Medium.eot');
+    src: local('☺'), url('../fonts/CeraPro-Medium.woff') format('woff'), url('../fonts/CeraPro-Medium.ttf') format('truetype'), url('../fonts/CeraPro-Medium.svg') format('svg');
+    font-weight: 500;
+    font-style: normal;
+}
+body {
+    font-family: CeraPro;
+    font-weight: 500;
+    max-width: 1920px;
+    width: 100%;
+    color: rgba(30, 34, 45, 1);
+}
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.frame {
+    background: #fff;
+    width: 418px;
+    height: 475px;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 16px 26px 26px 26px;
+}
+.ref {
+    margin-top: 22px;
+    text-align: center;
+   
+}
+a{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    color: #2F80ED;
+    
+}
+a:visited{
+    color: #2F80ED;
+}
+a:hover{
+    text-decoration-line: underline;
+}
+.title {
+    font-size: 34px;
+    line-height: 43px;
+    color: #1E222D;
+}
+.message {
+    background: url(../img/Icon.svg) left 2px no-repeat;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-indent: 18px;
+    color: rgba(30, 34, 45, 0.6);
+    margin-top: 10px;
+}
+
+.login_title {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #808185;
+    margin: 39px 0px 4px 0px;
+}
+.password_title{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #808185;
+    margin: 12px 0px 4px 0px;
+}
+input {
+    background: #fff;
+    border: 1px solid #D5D5D6;
+    border-radius: 8px;
+    padding: 11px 12px;
+    width: 366px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: border 0.4s;
+}
+input:hover{
+    border: 1px solid #2B2D33;
+}
+input:focus{
+    border: 1px solid #2B2D33;
+}
+.warning {
+    font-weight: 500;
+    max-height: 70px;
+    height:70px;
+    font-size: 14px;
+    color: #F88545;
+    margin: 4px 0px;
+    /* overflow-y: scroll */
+}
+.loginBtn {
+    width: 366px;
+    height: 50px;
+    padding: 14px 0px 13px;
+    background: #FEE600;
+    border-radius: 6px;
+    color: #1E222D;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    transition: all 0.3s;
+}
+.loginBtn:hover{
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
+}

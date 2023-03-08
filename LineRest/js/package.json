@@ -1,0 +1,16 @@
+{
+  "name": "linerest",
+  "version": "1.0.0",
+  "author": "Bezrukov Danil",
+  "description": "linerest",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.11.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "keywords": []
+}

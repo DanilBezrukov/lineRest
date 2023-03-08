@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if((window.screen.width * window.devicePixelRatio) < 1200){
+            localStorage.clear()
+            window.location.href = './entry'
+        }
+        if(localStorage.getItem("UserData") == ""){
+            window.location.href = './entry'
+        }
+        if (JSON.parse(localStorage.getItem("UserData")) == null) {
+            window.location.href = './entry'
+        }else{
+            window.addEventListener("storage",() => {
+                location.reload();
+            })
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lineRest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#888888">
+</head>
+
+<body>
+    <div id="myModal" class="modal">
+        <div class="modal_body">
+            <p class="modal_title"></p>
+
+            <div class="modal_content"></div>
+
+            <button class="modal_true">Подтвердить</button>
+            <button class="modal_false">Отмена</button>
+        </div>
+    </div>
+
+
+<nav class="nav">
+    <div class="nav_content">
+        <div class="nav_close"></div>
+        <p class="nav_title">Сотрудники онлайн</p>
+        <div class="nav_container"></div>
+    </div>
+    <button class="nav_btn">Выйти</button>
+</nav>
+
+
+    <section class="personage_id">
+        <div class="face_shape"></div>
+        <div class="personage"></div>
+
+        <div class="get_out">
+            <div></div>
+        </div>
+
+    </section>
+
+    <div class="schedule">
+        <div class="switch activeSchedule">График 2 / 2</div>
+        <div class="switch ">График 5 / 2</div>
+    </div>
+
+
+    <div class="scheduleСontainer">
+        <section class="all_cards">
+            <div class="card1" id="card1">
+                <p class="statys">Свободная карта</p>
+                <p class="statusBlocked">Карта заблокирована</p>
+                <p>Команда №1</p>
+                <p class="message">После того как вы активируйте карту, начнется отсчет время, данные будут отображаться
+                    у всех
+                    пользователей</p>
+                <p class="time">00:00</p>
+                <button class="cardBegin" data-num="1">Взять карту</button>
+                <button class="cardFinish" data-num="1">Завершить</button>
+                <p id="card1Name"></p>
+                <div>
+                    <span>Доб.:</span>
+                    <span class="cardID"></span>
+                </div>
+                <button>Взять карту</button>
+            </div>
+
+            <div class="card1" id="card2">
+                <p class="statys">Свободная карта</p>
+                <p class="statusBlocked">Карта заблокирована</p>
+                <p>Команда №2</p>
+                <p class="message">После того как вы активируйте карту, начнется отсчет время, данные будут отображаться
+                    у всех
+                    пользователей</p>
+                <p class="time">00:00</p>
+                <button class="cardBegin" data-num="2">Взять карту</button>
+                <button class="cardFinish" data-num="2">Завершить</button>
+                <p id="card2Name"></p>
+                <div>
+                    <span>Доб.:</span>
+                    <span class="cardID"></span>
+                </div>
+                <button>Взять карту</button>
+
+            </div>
+
+            <div class="card1" id="card3">
+                <p class="statys">Свободная карта</p>
+                <p class="statusBlocked">Карта заблокирована</p>
+                <p>Команда №3</p>
+                <p class="message">После того как вы активируйте карту, начнется отсчет время, данные будут отображаться
+                    у всех
+                    пользователей</p>
+                <p class="time">00:00</p>
+                <button class="cardBegin" data-num="3">Взять карту</button>
+                <button class="cardFinish" data-num="3">Завершить</button>
+                <p id="card3Name"></p>
+                <div>
+                    <span>Доб.:</span>
+                    <span class="cardID"></span>
+                </div>
+                <button>Взять карту</button>
+
+            </div>
+        </section>
+
+        <section class="all_stack">
+
+            <div class="stack1">
+                <p>Очередь</p>
+                <button id="get_in_line1" class="send_post">Встать в очередь</button>
+                <div id="container1" class="container"></div>
+            </div>
+
+            <div class="stack2">
+                <p>Очередь</p>
+                <button id="get_in_line2" class="send_post">Встать в очередь</button>
+                <div id="container2" class="container"></div>
+            </div>
+
+            <div class="stack3">
+                <p>Очередь</p>
+                <button id="get_in_line3" class="send_post">Встать в очередь</button>
+                <div id="container3" class="container"></div>
+            </div>
+        </section>
+    </div>
+
+    <div class="scheduleСontainer" style="display: none">
+
+        <section class="all_cards">
+
+            <div class="card1" id="card4">
+                <p class="statys">Свободная карта</p>
+                <p class="statusBlocked">Карта заблокирована</p>
+                <p>Команда 5 / 2</p>
+                <p class="message">После того как вы активируйте карту, начнется отсчет время, данные будут отображаться
+                    у всех
+                    пользователей</p>
+                <p class="time">00:00</p>
+                <button class="cardBegin" data-num="4">Взять карту</button>
+                <button class="cardFinish" data-num="4">Завершить</button>
+                <p id="card4Name"></p>
+                <div>
+                    <span>Доб.:</span>
+                    <span class="cardID"></span>
+                </div>
+                <button>Взять карту</button>
+            </div>
+
+        </section>
+
+        <section class="all_stack">
+
+            <div class="stack4">
+                <p>Очередь</p>
+                <button id="get_in_line4" class="send_post">Встать в очередь</button>
+                <div id="container4" class="container"></div>
+            </div>
+
+        </section>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
